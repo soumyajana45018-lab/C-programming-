@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 2 - Navigation Bar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f3f3;
+        }
+        nav {
+            background: #000;
+            padding: 12px 20px;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        nav ul li a:hover {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        #content {
+            padding: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" data-content="About Section Loaded">About</a></li>
+            <li><a href="#" data-content="Project Details Loaded">Project Details</a></li>
+            <li><a href="#" data-content="Skills Section Loaded">Skills</a></li>
+            <li><a href="#" data-content="Recommendations Loaded">Recommendations</a></li>
+        </ul>
+    </nav>
+    <div id="content">Click any menu item to display content here.</div>
+    <script>
+        const links = document.querySelectorAll("nav ul li a");
+        const content = document.getElementById("content");
+
+        links.forEach(link => {
+            link.addEventListener("click", function () {
+                content.textContent = this.getAttribute("data-content");
+            });
+        });
+    </script>
+</body>
+</html>
